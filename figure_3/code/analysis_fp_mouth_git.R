@@ -1,0 +1,102 @@
+# Clean the environment 
+rm(list = ls())  # Removes all objects from the workspace to start fresh
+
+# Load necessary libraries
+library("ggplot2")
+library("dplyr")
+library("readxl")
+library("reshape2")
+library("viridis")
+library("RColorBrewer")
+library("ggpubr")
+library("paletteer")
+library("MESS")
+library("pals")
+library("cowplot")
+library("DescTools")
+library("progress")
+library("signal")
+
+# Set working directory
+wd <- "./data/anxa1_fip"  # Define the working directory
+setwd(wd)  # Set the working directory
+dir.create("results", showWarnings = FALSE)  # Create results directory if it does not exist
+
+# Define independent variables
+body.part = "mouth"
+frame.dF = 1/60  # Frame rate for fiber photometry recording
+frame.behavior = 1/60  # Frame rate for behavioral data
+period = 10  # Window period for PETH analysis
+
+# Load experimental details
+details <- read.csv("./data/details.csv")
+videos <- unique(details$video)
+
+# Load data
+files.to.read <- list.files(pattern = ".mat", recursive = TRUE)  # Identify all .mat files
+
+# Process each .mat file
+for (n in 1:length(files.to.read)) {
+  video <- substr(files.to.read[n], 15, nchar(files.to.read[n])-4)  # Extract video name
+  
+  # Match video with experimental details
+  detail_row <- details[details$video == video, ]
+  if (nrow(detail_row) > 0) {
+    mouse.ID <- as.character(detail_row$mouse.ID)
+    sex <- as.character(detail_row$sex)
+    group <- as.character(detail_row$group)
+    phase <- as.character(detail_row$phase)}
+  
+  # Proceed only if the required files exist
+  behavior_file <- paste(substr(files.to.read[n], 1, nchar(files.to.read[n])-4), "_behavior.csv", sep = "")
+  dF_file <- paste(substr(files.to.read[n], 1, nchar(files.to.read[n])-4), "_signal_df.csv", sep = "")
+  
+  if (file.exists(behavior_file) && file.exists(dF_file)) {
+    behavior <- read.csv(behavior_file, header = TRUE)
+    behavior <- subset(behavior, paw == body.part)  # Filter behavior by the selected body part
+    
+    if (nrow(behavior) > 0) {
+      behavior$time <- behavior$frame * frame.behavior
+      
+      # Load and filter deltaF signal data
+      dF <- read.csv(dF_file, header = TRUE)
+      colnames(dF) <- c("time", "dF")
+      butterFilter <- butter(3, 0.1)
+      dF$dF <- signal::filter(butterFilter, dF$dF)
+      
+      dir.create(paste("results/", mouse.ID, sep = ""), showWarnings = FALSE)
+      
+      # Initialize data structures
+      PETH <- data.frame(nor.time = numeric(), zscore = numeric(), event.type = character(), episode = integer())
+      AUC <- data.frame(episode = integer(), event.type = character(), auc.pre = numeric(), auc.during = numeric(), auc.post = numeric())
+      
+      # Progress bar
+      pb <- progress_bar$new(total = nrow(behavior))
+      
+      # PETH alignement
+      for (i in 1:nrow(behavior)) {
+        pb$tick()
+        
+        if (behavior[i, "time"] > dF$time[1] + period && behavior[i, "time"] < dF$time[nrow(dF)] - period) {
+          x <- which.min(abs(behavior[i, "time"] - dF$time))
+          a <- data.frame(
+            nor.time = seq(from = -period, to = period, by = frame.dF),
+            zscore = (dF[(x-round(period/frame.dF)):(x+round(period/frame.dF)), 2] - mean(dF[, 2])) / sd(dF[, 2]),
+            event.type = rep(behavior[i, "event.type"], times = 1 + round(period/frame.dF)*2),
+            episode = rep(i, times = 1 + round(period/frame.dF)*2)
+          )
+          PETH <- rbind(PETH, a)
+        }
+      }
+      
+      # Save results
+      PETH$mouse.ID <- mouse.ID
+      PETH$video <- video
+      PETH$phase <- phase
+      PETH$group <- group
+      write.csv(PETH, paste("results/", mouse.ID, "/", video, "_", body.part, "_PETH.csv", sep = ""), row.names = FALSE)
+      
+      print(paste(video, "done", sep = " ")) 
+    }
+  }
+}
