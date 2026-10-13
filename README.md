@@ -1,4 +1,4 @@
-# Anxa1_DAN_PD_experiments
+# Anxa1_DAN_PD_codes
 
 ## Summary
 This repository contains data and R scripts for analyzing the role of **Anxa1+ dopamine neurons (DANs) in Parkinson’s disease (PD)**. The experiments explore neural activity, behavioral effects of DAN silencing, and their impact on motor learning. Key findings include:
