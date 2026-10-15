@@ -304,22 +304,12 @@ b <- plot_protocol(
   x_limits = c(-1, 2)
 )
 
-c <- plot_protocol(
-  PETH_summary,
-  protocol = "5 sec, 10 sec",
-  duration = 5,
-  x_limits = c(-1, 6)
-)
-
-bc <- plot_grid(b, c, nrow = 1, align = "tb", axis = "tblr", rel_widths = c(1, 0.4))
-
-
 # ============================================================
 # 8. COMBINE AND EXPORT FIGURE
 # ============================================================
 
 final_plot <- plot_grid(
-  a, bc, nrow = 2, align = "lr", axis = "tblr",
+  a, b, nrow = 2, align = "lr", axis = "tblr",
   labels = "AUTO", rel_heights = c(1, 2)
 )
 
