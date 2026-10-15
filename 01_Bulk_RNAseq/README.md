@@ -17,8 +17,6 @@ This directory contains R scripts used to compare gene-expression changes in the
 - **GSE233866:** `GSE233866_metadata.csv` and `GSE233866_lesion_intact_counts.csv.gz`. Download the appropriate files from [NCBI GEO: GSE233866](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE233866).
 - **Intermediate object:** `mDA.rds`, produced by script 02 and used by script 03.
 
-Input datasets and large Seurat `.rds` objects are not included in this directory.
-
 ## Running the analyses
 
 Run the numbered scripts in order. Update the input/output directory variables near the beginning of each script to match your local installation. The preprocessing script uses `WD` as its working directory; the signature-analysis script also contains file paths that should be adjusted before execution.
