@@ -19,7 +19,7 @@
 #   results/<video>/<video>_PETH.csv
 #
 # Output:
-#   results/opto+dLight.pdf
+#   results/Extended_Data_Figure_4IJ.pdf
 #
 # Author: Alessandro Contestabile
 # ============================================================
@@ -314,7 +314,7 @@ final_plot <- plot_grid(
 )
 
 ggsave(
-  file.path(OUT_DIR, "opto+dLight.pdf"),
+  file.path(OUT_DIR, "Extended_Data_Figure_4IJ.pdf"),
   final_plot, width = 12, height = 6
 )
 
