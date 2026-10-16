@@ -39,7 +39,7 @@ link will be added here once available.
 
 1. Update the input and output paths in each script.
 2. Verify the section-to-animal mapping against the sample metadata.
-3. Run `merscope_analysis_pipeline.py`. In Spyder, run the required
+3. Run `01.Merscope_main_analysis.py`. In Spyder, run the required
    cells in order; cells marked optional are exploratory or diagnostic.
 4. Run the plotting scripts using the saved subcluster AnnData file.
 5. For tissue overlays, select the matching section, DAPI image,
