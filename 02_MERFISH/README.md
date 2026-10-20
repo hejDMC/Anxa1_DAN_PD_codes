@@ -34,6 +34,7 @@ link will be added here once available.
 - `04.Merscope_ overlay_clusters_on_dapi_sections.py`: overlays selected subclusters on DAPI images.
 - `05.UMAP_per_condition_clusterofinterest.py`: plots existing subclusters
   separately by experimental group.
+- `06.Figure_1H.py`: performs MASC-style mixed-effects analysis of dopaminergic neuron cluster proportions across MitoPark disease stages, reporting log2 odds ratios, 95% confidence intervals, and FDR-adjusted p-values for Figure 1H.
 
 ## Running the analysis
 
