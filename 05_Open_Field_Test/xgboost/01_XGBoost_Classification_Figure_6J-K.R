@@ -1,5 +1,5 @@
 # ============================================================
-# Figure 6J–K — XGBoost classification of OFT behavior
+# Figure 6I–J — XGBoost classification of OFT behavior
 # Author: Alessandro Contestabile
 #
 # Description:
@@ -16,7 +16,7 @@
 #   - R packages listed below, including xgboost and caret.
 #
 # Outputs:
-#   - figure_6JK.pdf
+#   - figure_6IJ.pdf
 #   - xgb_feature_importance_gain.csv
 #   - xgb_feature_importance_shap.csv
 #   - xgb_model_tetanus.json
@@ -429,7 +429,7 @@ big_fig <- (p_gain | p_shap | col3 | col4) +
   plot_layout(widths = c(1, 1, 1, 1))
 
 ggsave(
-  file.path(analysis_dir, "figure_6JK.pdf"),
+  file.path(analysis_dir, "figure_6IJ.pdf"),
   big_fig, width = 18, height = 8
 )
 
