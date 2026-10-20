@@ -1,5 +1,5 @@
 # ============================================================
-# Figure 6M — Behavioral motif transition networks
+# Figure 6L — Behavioral motif transition networks
 # Author: Alessandro Contestabile
 #
 # Description:
@@ -15,8 +15,8 @@
 #   - summary_annotations.csv containing motif identities and behavioral annotations.
 #
 # Outputs:
-#   - figure_6M_selected.pdf
-#   - stats_figure_6M_wilcoxon_FDR_all_transitions.csv
+#   - figure_6L_selected.pdf
+#   - stats_figure_6L_wilcoxon_FDR_all_transitions.csv
 #
 # Notes:
 #   - Experiments and behavioral categories can be selected in the settings section below.
@@ -211,7 +211,7 @@ edge_stats_sig
 
 write.csv(
   edge_stats_sig,
-  file.path(analysis_dir, "stats_figure_6M_wilcoxon_FDR_all_transitions.csv"),
+  file.path(analysis_dir, "stats_figure_6L_wilcoxon_FDR_all_transitions.csv"),
   row.names = FALSE
 )
 
@@ -338,7 +338,7 @@ p_combined
 # ------------------ SAVE ------------------
 out_file <- file.path(
   analysis_dir,
-  paste0("figure_6M_selected.pdf")
+  paste0("figure_6L_selected.pdf")
 )
 ggsave(out_file, p_combined,
        width  = 18 * length(plots_list),
