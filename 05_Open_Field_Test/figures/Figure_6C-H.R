@@ -1,5 +1,5 @@
 # ============================================================
-# Figure 6C–I — Open-field behavioral and motif analyses
+# Figure 6C–H — Open-field behavioral and motif analyses
 # Author: Alessandro Contestabile
 #
 # Description:
@@ -16,9 +16,9 @@
 #
 # Outputs:
 #   - figure_6C.pdf: behavioral comparisons.
-#   - figure_6I.pdf: normalized motif usage.
+#   - figure_6H.pdf: normalized motif usage.
 #   - stats_figure_6C_wilcoxon_FDR.csv
-#   - stats_figure_6I_wilcoxon_FDR.csv
+#   - stats_figure_6H_wilcoxon_FDR.csv
 #   - motif_norm_long_per_mouse.csv
 #   - motif_norm_summary_exp_motif.csv
 #
@@ -441,7 +441,7 @@ p3 <- ggplot() +
   ) +
   facet_wrap(~ experiment, nrow = 1, scales = "fixed")
 
-out_pdf3 <- file.path(ANALYSIS_DIR, "figure_6I.pdf")
+out_pdf3 <- file.path(ANALYSIS_DIR, "figure_6H.pdf")
 ggsave(out_pdf3, p3, width = 12, height = 8, units = "in", dpi = 300)
 
 message("Saved normalization figure: ", out_pdf3)
@@ -469,6 +469,6 @@ norm_stats <- motif_norm_exp %>%
   dplyr::arrange(experiment, motif)
 
 # Save stats table
-out_norm_stats <- file.path(ANALYSIS_DIR, "stats_figure_6I_wilcoxon_FDR.csv")
+out_norm_stats <- file.path(ANALYSIS_DIR, "stats_figure_6H_wilcoxon_FDR.csv")
 readr::write_csv(norm_stats, out_norm_stats)
 message("Saved Wilcoxon stats for normalized motifs (FDR): ", out_norm_stats)
