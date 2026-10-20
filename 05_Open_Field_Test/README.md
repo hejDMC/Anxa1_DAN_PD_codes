@@ -15,10 +15,10 @@ Before running, update the input/output paths in the **Settings** or **Paths** s
 3. **`02_Data_Alignment.R`** — Align VAME motifs, behavioral tracking, and photometry; export `*_aligned.csv` and recording summaries.
 4. **`03_PETH_Preprocessing.R`** — Generate motif/event-aligned photometry summaries.
 5. **`Figure_5D-H.R`** — Generate Figure 5 analyses and the motif-level intermediate tables used by subsequent scripts.
-6. **`Figure_6C-I.R`** — Generate Figure 6 behavioral summaries using the preprocessing outputs and motif-speed table.
+6. **`Figure_6C-H.R`** — Generate Figure 6 behavioral summaries using the preprocessing outputs and motif-speed table.
 7. **`00_VAME_Feature_Extraction.R`** — Build `vame_sequence_features.csv` from aligned recordings and the motif-speed table.
-8. **`01_XGBoost_Classification_Figure_6J-K.R`** — Train the TeTxLC classifier and evaluate the other experimental cohorts (Figure 6J–K).
-9. **`Figure_6M.R`** — Plot behavioral transition networks using the extracted sequence features and `summary_annotations.csv`.
+8. **`01_XGBoost_Classification_Figure_6I-J.R`** — Train the TeTxLC classifier and evaluate the other experimental cohorts (Figure 6J–K).
+9. **`Figure_6L.R`** — Plot behavioral transition networks using the extracted sequence features and `summary_annotations.csv`.
 
 ## Extended Data figures
 
