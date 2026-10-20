@@ -1,62 +1,36 @@
-# Anxa1_DAN_PD_codes
+# Anxa1+ Dopamine Neurons — Analysis Code
 
-## Summary
-This repository contains data and R scripts for analyzing the role of **Anxa1+ dopamine neurons (DANs) in Parkinson’s disease (PD)**. The experiments explore neural activity, behavioral effects of DAN silencing, and their impact on motor learning. Key findings include:
-- Anxa1+ DANs are **selectively vulnerable** in early PD stages.
-- Their activity correlates with **vigorous movements** rather than reward signaling.
-- Silencing Anxa1+ DANs induces **bradykinesia-like motor deficits**.
-- Anxa1+ DANs are essential for **procedural motor learning**.
+This repository contains data, analysis code, and figures related to the experiments on Anxa1+ dopamine neurons (DANs) of the following publication:
 
-## Description
+Mantas, I., Contestabile, A., Skara, V., Loiseau, C., Rubino, E., Santos, I. A., Cramb, K. M. L., Filograna, R., Wade-Martins, R., Magill, P. J., & Meletis, K.  
+**Anxa1+ dopamine neuron vulnerability defines prodromal Parkinson's disease-like bradykinesia and procedural motor learning impairment**
 
-This repository contains data, analysis code, and figures related to the experiments on Anxa1+ dopamine neurons (DANs) of the following preprint:
+The analysis code is organized by experimental approach.
 
-Mantas, I., Contestabile, A., Skara, V., Loiseau, C., Santos, I. A., Cramb, K. M. L., Filograna, R., Wade-Martins, R., Magill, P., & Meletis, K. (2024).  
-Anxa1+ dopamine neuron vulnerability defines prodromal Parkinson’s disease bradykinesia and procedural motor learning impairment. bioRxiv.  
-[https://doi.org/10.1101/2024.12.22.629963](https://doi.org/10.1101/2024.12.22.629963)
+## Repository structure
 
-The datasets and scripts correspond to:
+- **`01_Bulk_RNAseq/`** — Bulk RNA-seq processing and analysis of gene-expression changes.
+- **`02_MERFISH/`** — MERSCOPE spatial transcriptomics analysis, including quality control, clustering, marker visualization, spatial overlays, and cluster-abundance comparisons.
+- **`03_Fiber_Photometry_Optogenetics/`** — Analysis and visualization of fiber-photometry recordings and optogenetic stimulation responses.
+- **`04_Water_Consumption/`** — Analysis of behavioral events and event-aligned signals during water consumption.
+- **`05_Open_Field_Test/`** — Open-field behavioral analysis, including locomotor patterns and movement-related measurements.
+- **`06_Reaching_Test/`** — Quantification of reaching performance and DeepLabCut-based movement trajectories.
 
-- **Figure 3**: Calcium and dopamine signal recordings during water consumption.
-- **Figure 4**: Behavioral motif analysis and correlations with Anxa1+ DAN activity.
-- **Figure 5**: Anxa1+ DAN silencing and its effect on motor behavior and motif usage.
-- **Figure 6**: Procedural motor learning deficits following Anxa1+ DAN silencing.
+Each subfolder contains the corresponding scripts and a dedicated README with instructions and expected inputs and outputs.
 
-## Repository Structure
+## Data availability
 
-```
-/Anxa1_DAN_PD_experiments
-│── /figure_3
-│   ├── /data       # Raw and processed data for Figure 3D-E
-│   ├── /code       # Scripts for analysis and visualization
-│── /figure_4
-│   ├── /data       # Raw and processed data for Figure 4C-H
-│   ├── /code       # Scripts for analysis and visualization
-│── /figure_5
-│   ├── /data       # Raw and processed data for Figure 5B-M
-│   ├── /code       # Scripts for analysis and visualization
-│── /figure_6
-│   ├── /data       # Raw and processed data for Figure 6B-D and 6H-J
-│   ├── /code       # Scripts for analysis and visualization
-│── README.md       # Repository documentation
-│── LICENSE         # License file for usage
-│── requirements.txt # Dependencies for analysis scripts
-```
+The datasets associated with these analyses are available in the following repositories:
 
-## Running Analysis
-Each figure has a dedicated folder with **R** analysis scripts. To execute an analysis, use:
-```bash
-Rscript figure_3/code/analyze_fig3.R
-```
-Modify the script name accordingly for other figures.
+| Analysis | Data repository | Accession |
+| --- | --- | --- |
+| Bulk RNA-seq (`01_Bulk_RNAseq`) | NCBI GEO | **GSE233866**; additional bulk dataset: **GEOXXXXX** |
+| MERFISH / MERSCOPE (`02_MERFISH`) | NCBI GEO | **GEOXXXXX** |
+| Fiber photometry and optogenetics (`03_Fiber_Photometry_Optogenetics`) | DANDI Archive | **XXXXXXXX** |
+| Water consumption (`04_Water_Consumption`) | DANDI Archive | **XXXXXXXX** |
+| Open field test (`05_Open_Field_Test`) | DANDI Archive | **XXXXXXXX** |
+| Reaching test (`06_Reaching_Test`) | DANDI Archive | **XXXXXXXX** |
 
-## Data
-The `data/` folders contain raw and processed datasets:
-- **Raw data**: Includes behavioral, photometry, and optogenetics recordings.
-- **Processed data**: Data matrices and extracted features used for analysis.
+## Usage
 
-## Code
-The `code/` folders contain all analysis scripts written in **R**.
-
-## License
-This repository is shared under the **CC-BY-NC-ND 4.0 License**, meaning it can be used for non-commercial purposes with proper attribution.
+Refer to the README or configuration section within each subfolder. Set local input/output paths and install the dependencies listed in the relevant scripts before running the analyses.
