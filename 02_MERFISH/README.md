@@ -21,8 +21,7 @@ file containing:
 Spatial overlay scripts additionally require cell coordinates, the
 corresponding DAPI mosaic TIFF, and the appropriate coordinate transform.
 
-Data availability: The MERSCOPE data will be deposited in Zenodo. The DOI and access
-link will be added here once available.
+Data availability: The MERSCOPE data have been deposited in the Gene Expression Omnibus (GEO) under accession number GSE351703: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE351703
 
 ## Scripts
 
