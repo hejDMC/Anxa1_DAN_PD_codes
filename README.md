@@ -24,8 +24,8 @@ The datasets associated with these analyses are available in the following repos
 
 | Analysis | Data repository | Accession |
 | --- | --- | --- |
-| Bulk RNA-seq (`01_Bulk_RNAseq`) | NCBI GEO | **GSE233866**; additional bulk dataset: **GEOXXXXX** |
-| MERFISH / MERSCOPE (`02_MERFISH`) | NCBI GEO | **GEOXXXXX** |
+| Bulk RNA-seq (`01_Bulk_RNAseq`) | NCBI GEO | **GSE233866**; additional bulk dataset: GSE282753 |
+| MERFISH / MERSCOPE (`02_MERFISH`) | NCBI GEO | GSE351703 |
 | Fiber photometry and optogenetics (`03_Fiber_Photometry_Optogenetics`) | DANDI Archive | [DANDI: 001828](https://doi.org/10.48324/dandi.001828/0.261020.1002) |
 | Water consumption (`04_Water_Consumption`) | DANDI Archive | [DANDI: 001828](https://doi.org/10.48324/dandi.001828/0.261020.1002) |
 | Open field test (`05_Open_Field_Test`) | DANDI Archive | [DANDI: 001828](https://doi.org/10.48324/dandi.001828/0.261020.1002) |
